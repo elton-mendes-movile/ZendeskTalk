@@ -20,6 +20,9 @@
 		974A1AB31BC6FABB001E1FA3 /* PlaykidsZendeskOptionTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 974A1AB01BC6FABB001E1FA3 /* PlaykidsZendeskOptionTableViewCell.h */; settings = {ASSET_TAGS = (); }; };
 		974A1AB41BC6FABB001E1FA3 /* PlaykidsZendeskOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 974A1AB11BC6FABB001E1FA3 /* PlaykidsZendeskOptionTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		974A1AB51BC6FABB001E1FA3 /* PlaykidsZendeskOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974A1AB21BC6FABB001E1FA3 /* PlaykidsZendeskOptionTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		974ECD9D1BC71FA900A288D2 /* ZendeskSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 974ECD9A1BC71FA900A288D2 /* ZendeskSDK.bundle */; settings = {ASSET_TAGS = (); }; };
+		974ECD9E1BC71FA900A288D2 /* ZendeskSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 974ECD9B1BC71FA900A288D2 /* ZendeskSDK.framework */; settings = {ASSET_TAGS = (); }; };
+		974ECD9F1BC71FA900A288D2 /* ZendeskSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 974ECD9C1BC71FA900A288D2 /* ZendeskSDKStrings.bundle */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		974A1AB01BC6FABB001E1FA3 /* PlaykidsZendeskOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaykidsZendeskOptionTableViewCell.h; sourceTree = "<group>"; };
 		974A1AB11BC6FABB001E1FA3 /* PlaykidsZendeskOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaykidsZendeskOptionTableViewCell.m; sourceTree = "<group>"; };
 		974A1AB21BC6FABB001E1FA3 /* PlaykidsZendeskOptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaykidsZendeskOptionTableViewCell.xib; sourceTree = "<group>"; };
+		974ECD9A1BC71FA900A288D2 /* ZendeskSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZendeskSDK.bundle; sourceTree = "<group>"; };
+		974ECD9B1BC71FA900A288D2 /* ZendeskSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZendeskSDK.framework; sourceTree = "<group>"; };
+		974ECD9C1BC71FA900A288D2 /* ZendeskSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZendeskSDKStrings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				974ECD9E1BC71FA900A288D2 /* ZendeskSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +98,9 @@
 		974A1A3A1BC6E5F6001E1FA3 /* PlaykidsZendeskSDK */ = {
 			isa = PBXGroup;
 			children = (
+				974ECD9A1BC71FA900A288D2 /* ZendeskSDK.bundle */,
+				974ECD9B1BC71FA900A288D2 /* ZendeskSDK.framework */,
+				974ECD9C1BC71FA900A288D2 /* ZendeskSDKStrings.bundle */,
 				974A1A3B1BC6E5F6001E1FA3 /* PlaykidsZendeskSDK.h */,
 				974A1A5A1BC6E75D001E1FA3 /* PlaykidsZendeskFlowManager.h */,
 				974A1A5B1BC6E75D001E1FA3 /* PlaykidsZendeskFlowManager.m */,
@@ -210,7 +220,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				974ECD9F1BC71FA900A288D2 /* ZendeskSDKStrings.bundle in Resources */,
 				974A1AB51BC6FABB001E1FA3 /* PlaykidsZendeskOptionTableViewCell.xib in Resources */,
+				974ECD9D1BC71FA900A288D2 /* ZendeskSDK.bundle in Resources */,
 				974A1AAF1BC6F5DE001E1FA3 /* PlaykidsZendeskOptionsTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +366,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PlaykidsZendeskSDK/zendesk_sdk_ios-master/SampleApp/SampleApp/Frameworks",
+					"$(PROJECT_DIR)/PlaykidsZendeskSDK",
+				);
 				INFOPLIST_FILE = PlaykidsZendeskSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -373,6 +390,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PlaykidsZendeskSDK/zendesk_sdk_ios-master/SampleApp/SampleApp/Frameworks",
+					"$(PROJECT_DIR)/PlaykidsZendeskSDK",
+				);
 				INFOPLIST_FILE = PlaykidsZendeskSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
