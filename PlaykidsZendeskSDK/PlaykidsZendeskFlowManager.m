@@ -41,20 +41,20 @@
 }
 
 + (void)initZendeskFramework {
-    [ZDKLogger enable:YES];
-
-
-    ZDKAnonymousIdentity *identity = [ZDKAnonymousIdentity new];
-//    identity.name = @"Elton Mendes";
-//    identity.email = @"elton.mendes@movile.com";
-    [ZDKConfig instance].userIdentity = identity;
-
-
-    [[ZDKConfig instance] initializeWithAppId:@"ea99561ebf35239bbed56b542945d0cf1beb2320ce158104" zendeskUrl:@"https://playkids.zendesk.com" ClientId:@"mobile_sdk_client_f35159f871524ea553dc" onSuccess:^() {
-
-    } onError:^(NSError *error) {
-        
-    }];
+//    [ZDKLogger enable:YES];
+//
+//
+//    ZDKAnonymousIdentity *identity = [ZDKAnonymousIdentity new];
+////    identity.name = @"Elton Mendes";
+////    identity.email = @"elton.mendes@movile.com";
+//    [ZDKConfig instance].userIdentity = identity;
+//
+//
+//    [[ZDKConfig instance] initializeWithAppId:@"ea99561ebf35239bbed56b542945d0cf1beb2320ce158104" zendeskUrl:@"https://playkids.zendesk.com" ClientId:@"mobile_sdk_client_f35159f871524ea553dc" onSuccess:^() {
+//
+//    } onError:^(NSError *error) {
+//        
+//    }];
 }
 
 
