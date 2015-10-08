@@ -106,9 +106,6 @@ typedef enum : NSUInteger {
             break;
         case 1:
             [ZDKHelpCenter showHelpCenterWithNavController:self.navigationController filterByCategoryId:@"200423088" categoryName:@"playKids-talk" layoutGuide:ZDKLayoutRespectAll];
-            [ZDKHelpCenter showHelpCenterWithNavController:self.navigationController];
-        
-//            [ZDKRequests showRequestCreationWithNavController:self.navigationController];
             break;
         default:
             break;
