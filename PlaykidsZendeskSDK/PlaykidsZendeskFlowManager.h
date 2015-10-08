@@ -12,5 +12,6 @@
 @interface PlaykidsZendeskFlowManager : NSObject
 
 + (void)showZendeskFlowIn:(UIViewController *)controller;
++ (void)initZendeskFramework;
 
 @end

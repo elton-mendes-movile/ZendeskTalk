@@ -97,13 +97,18 @@ typedef enum : NSUInteger {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
-            //review
+            [ZDKRMA configure:^(ZDKAccount *account, ZDKRMAConfigObject *config) {
+                
+                config.dialogActions = @[@(ZDKRMARateApp)];
+            }];
+            
+            [ZDKRMA showInView:self.view];
             break;
         case 1:
-//            [ZDKHelpCenter showHelpCenterWithNavController:self.navigationController filterByCategoryId:@"200423088" categoryName:@"playKids-talk" layoutGuide:ZDKLayoutRespectAll];
-//            [ZDKHelpCenter showHelpCenterWithNavController:self.navigationController];
-//        
-//            [ZDKRequests showRequestCreationWithNavController:self.navigationController];
+            [ZDKHelpCenter showHelpCenterWithNavController:self.navigationController filterByCategoryId:@"200423088" categoryName:@"playKids-talk" layoutGuide:ZDKLayoutRespectAll];
+            [ZDKHelpCenter showHelpCenterWithNavController:self.navigationController];
+        
+            [ZDKRequests showRequestCreationWithNavController:self.navigationController];
             break;
         default:
             break;
