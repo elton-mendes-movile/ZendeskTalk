@@ -96,13 +96,10 @@ typedef enum : NSUInteger {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 0:
-            [ZDKRMA configure:^(ZDKAccount *account, ZDKRMAConfigObject *config) {
-                
-                config.dialogActions = @[@(ZDKRMARateApp)];
-            }];
-            
-            [ZDKRMA showInView:self.view];
+        case 0:{
+            NSString *iTunesLink = @"itms://itunes.apple.com/br/app/playkids-talk-o-melhor-e-mais/id1020028752?mt=8";
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+        }
             break;
         case 1:
             [ZDKHelpCenter showHelpCenterWithNavController:self.navigationController filterByCategoryId:@"200423088" categoryName:@"playKids-talk" layoutGuide:ZDKLayoutRespectAll];

@@ -40,20 +40,31 @@
     [controller presentViewController:actionSheet animated:YES completion:nil];
 }
 
-+ (void)initZendeskFramework {
-    [ZDKLogger enable:YES];
-
++ (void)initZendeskFrameworkWithAppId:(NSString *)appId zendeskUrl:(NSString *)zendeskURL clientId:(NSString *)clientId {
+    
     ZDKAnonymousIdentity *identity = [ZDKAnonymousIdentity new];
-//    identity.name = @"Elton Mendes";
-//    identity.email = @"elton.mendes@movile.com";
+
     [ZDKConfig instance].userIdentity = identity;
 
 
-    [[ZDKConfig instance] initializeWithAppId:@"ea99561ebf35239bbed56b542945d0cf1beb2320ce158104" zendeskUrl:@"https://playkids.zendesk.com" ClientId:@"mobile_sdk_client_f35159f871524ea553dc" onSuccess:^() {
+    [[ZDKConfig instance] initializeWithAppId:appId zendeskUrl:zendeskURL ClientId:clientId onSuccess:^() {
 
     } onError:^(NSError *error) {
         
     }];
+}
+
++ (void)setupUserIdentity:(NSString *)name email:(NSString *)email {
+    
+    ZDKAnonymousIdentity *identity = [ZDKAnonymousIdentity new];
+    identity.name = name;
+    identity.email = email;
+    [ZDKConfig instance].userIdentity = identity;
+
+}
+
++ (void)enableZendeskLog {
+    [ZDKLogger enable:YES];
 }
 
 
