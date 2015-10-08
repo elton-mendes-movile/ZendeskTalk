@@ -93,8 +93,7 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "PlaykidsZendeskSDK/*.{h,m}"
-
-  #s.public_header_files = "PlaykidsZendeskSDK/**/*.h"
+  s.public_header_files = "PlaykidsZendeskSDK/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
