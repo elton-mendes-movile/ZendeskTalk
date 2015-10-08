@@ -6,6 +6,7 @@
 //  Copyright © 2015 Elton Mendes Vieira Junior. All rights reserved.
 //
 
+#import <ZendeskSDK/ZendeskSDK.h>
 #import "PlaykidsZendeskOptionsTableViewController.h"
 #import "PlaykidsZendeskOptionTableViewCell.h"
 
