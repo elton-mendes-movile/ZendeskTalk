@@ -7,14 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef enum : NSUInteger {
-    CellTypeReview,
-    CellTypeContactTeam,
-} CellType;
+#import "PlaykidsZendeskOptionsTableViewController.h"
 
 @interface PlaykidsZendeskOptionTableViewCell : UITableViewCell
 
-- (void)setupCellForType:(CellType) cellType;
+- (void)setupCellForType:(OptionsType) cellType andIndex:(NSUInteger)index;
 
 @end

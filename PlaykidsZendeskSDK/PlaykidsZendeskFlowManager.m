@@ -22,16 +22,13 @@
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"How do you feel about Playkids Talk?" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     
     [actionSheet addAction:[UIAlertAction actionWithTitle:@"Happy" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        PlaykidsZendeskNavigationViewController *nav = [PlaykidsZendeskNavigationViewController new];
-        PlaykidsZendeskOptionsTableViewController *vc = [PlaykidsZendeskOptionsTableViewController new];
-        [nav setViewControllers:@[vc]];
-        [controller presentViewController:nav animated:YES completion:nil];
+        [self startOptionsFlowFromController:controller flowType:OptionsTypeHappy];
     }]];
     [actionSheet addAction:[UIAlertAction actionWithTitle:@"Confused" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        [self startOptionsFlowFromController:controller flowType:OptionsTypeConfused];
     }]];
     [actionSheet addAction:[UIAlertAction actionWithTitle:@"Unhappy" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        [self startOptionsFlowFromController:controller flowType:OptionsTypeUnhappy];
     }]];
     [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
@@ -39,6 +36,16 @@
     
     [controller presentViewController:actionSheet animated:YES completion:nil];
 }
+
++ (void)startOptionsFlowFromController:(UIViewController *)controller flowType:(OptionsType)optionsType {
+    
+    PlaykidsZendeskNavigationViewController *nav = [PlaykidsZendeskNavigationViewController new];
+    PlaykidsZendeskOptionsTableViewController *vc = [PlaykidsZendeskOptionsTableViewController new];
+    vc.currentOptionsType = optionsType;
+    [nav setViewControllers:@[vc]];
+    [controller presentViewController:nav animated:YES completion:nil];
+}
+
 
 + (void)initZendeskFrameworkWithAppId:(NSString *)appId zendeskUrl:(NSString *)zendeskURL clientId:(NSString *)clientId {
     

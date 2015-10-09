@@ -58,11 +58,38 @@ typedef enum : NSUInteger {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    switch (self.currentOptionsType) {
+        case OptionsTypeHappy:
+            return 2;
+            break;
+        case OptionsTypeConfused:
+            return 2;
+            break;
+        case OptionsTypeUnhappy:
+            return 1;
+            break;
+        default:
+            break;
+    }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return section == SectionTypeContact ? @"We`d love to know how we can make Playkids Talk even better - and really appreciate if you left a review on the app store." : @"Unknow";
+    
+    switch (self.currentOptionsType) {
+        case OptionsTypeHappy:
+            return @"We`d love to know how we can make PlaykidsTalk even better - and really appreciate if you left a review on the app store.";
+            break;
+        case OptionsTypeConfused:
+            return @"If you're unsure about how to use PlaykidsTalk, why not visit the PlaykidsTalk help center or contact the PlayKids team?";
+            break;
+        case OptionsTypeUnhappy:
+            return @"We'd love to know how we can make PlaykidsTalk even better, and make your experience with PlaykidsTalk a happy one!";
+            break;
+        default:
+            break;
+    }
+    
+    return @"Unknown";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -89,7 +116,7 @@ typedef enum : NSUInteger {
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PlaykidsZendeskOptionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OptionCell" forIndexPath:indexPath];
     
-    [cell setupCellForType:indexPath.row];
+    [cell setupCellForType:self.currentOptionsType andIndex:indexPath.row];
     
     return cell;
 }
@@ -97,12 +124,29 @@ typedef enum : NSUInteger {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
-            NSString *iTunesLink = @"itms://itunes.apple.com/br/app/playkids-talk-o-melhor-e-mais/id1020028752?mt=8";
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+            switch (self.currentOptionsType) {
+                case OptionsTypeHappy:{
+                    NSString *iTunesLink = @"itms://itunes.apple.com/br/app/playkids-talk-o-melhor-e-mais/id1020028752?mt=8";
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+                }
+                    break;
+                case OptionsTypeConfused: {
+                    [ZDKHelpCenter showHelpCenterWithNavController:self.navigationController filterByCategoryId:@"200423088" categoryName:@"playKids-talk" layoutGuide:ZDKLayoutRespectAll];
+
+                }
+                    break;
+                case OptionsTypeUnhappy:{
+                    [ZDKRequests showRequestCreationWithNavController:self.navigationController];
+                }
+                    break;
+                default:
+                    break;
+            }
+
         }
             break;
         case 1:
-            [ZDKHelpCenter showHelpCenterWithNavController:self.navigationController filterByCategoryId:@"200423088" categoryName:@"playKids-talk" layoutGuide:ZDKLayoutRespectAll];
+            [ZDKRequests showRequestCreationWithNavController:self.navigationController];
             break;
         default:
             break;

@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    OptionsTypeHappy,
+    OptionsTypeConfused,
+    OptionsTypeUnhappy,
+} OptionsType;
+
 @interface PlaykidsZendeskOptionsTableViewController : UITableViewController
+
+@property (nonatomic) OptionsType currentOptionsType;
 
 @end

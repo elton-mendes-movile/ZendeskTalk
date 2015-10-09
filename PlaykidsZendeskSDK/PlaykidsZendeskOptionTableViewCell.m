@@ -27,13 +27,35 @@
     // Configure the view for the selected state
 }
 
-- (void)setupCellForType:(CellType) cellType {
-    switch (cellType) {
-        case CellTypeReview:
-            self.cellTitle.text = @"Write a review";
+- (void)setupCellForType:(OptionsType) cellType andIndex:(NSUInteger)index{
+    switch (index) {
+        case 0:
+            switch (cellType) {
+                case OptionsTypeHappy:
+                    self.cellTitle.text = @"Write a review";
+                    break;
+                case OptionsTypeConfused:
+                    self.cellTitle.text = @"Gettin started Guide";
+                    break;
+                case OptionsTypeUnhappy:
+                    self.cellTitle.text = @"Contact PlaykidsTalk Team";
+                    break;
+                default:
+                    break;
+            }
             break;
-        case CellTypeContactTeam:
-            self.cellTitle.text = @"Contact the PlayKids Talk team";
+        case 1:
+            
+            switch (cellType) {
+                case OptionsTypeHappy:
+                    self.cellTitle.text = @"Contact PlaykidsTalk Team";
+                    break;
+                case OptionsTypeConfused:
+                    self.cellTitle.text = @"Contact PlaykidsTalk Team";
+                    break;
+                default:
+                    break;
+            }
             break;
         default:
             break;
